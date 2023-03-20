@@ -74,6 +74,7 @@ def calc_contrib_logit(df, Y_col):
     
     # perform logit regression for the full model, retrieve its McFadden's pseudo-R2
     model = sm.Logit(Y, sm.add_constant(X)).fit(disp=0)
+    loglike_null = model.llnull
     pseudo_r2 = model.prsquared
     
     # prepare some DataFrames as placeholder
